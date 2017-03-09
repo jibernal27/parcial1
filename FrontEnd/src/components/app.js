@@ -3,32 +3,32 @@
 import React, { Component } from 'react';
 import ImagePreview from './ImagePreview';
 import axios from 'axios';
-
-const ROOT_URL = "http://localhost:3000";
+import update from 'immutability-helper';
+const ROOT_URL = "https://backendparcial1.herokuapp.com";
 class App extends Component {
 
     constructor(props) {
         super(props);
         
         this.state = {
-            red: [],
-            orange: [],
-            yellow: [],
-            green: [],
-            indigo: [],
-            violet: [],
+            red:[],
+            orange:[],
+            yellow:[],
+            green:[],
+            green:[],
             blue:[],
+            indigo:[],
+            violet:[],
             colors:["red","orange", "yellow", "green", "blue","indigo", "violet" ],
-            pag:1,
+            pag:1
 
         };
-        this.obtenerImagesCriterio("Amor");
+        this.obtenerImagesCriterio("Flower");
 
     }
 
     obtenerImagesCriterio(cri) {
-        
-            axios.get(ROOT_URL + "/flickr/"+cri+" red")
+    axios.get(ROOT_URL + "/flickr/"+cri+" red")
                 .then(response => {
                     console.log(response.data);
                     this.setState({
@@ -87,6 +87,7 @@ class App extends Component {
                         violet: response.data.body.photos.photo
                     });
                 });
+               
          
         
     }
@@ -97,59 +98,81 @@ class App extends Component {
   }
 }
 
+    renderImages()
+    {
+        console.log("Si renderizo")
+        var rta="";
+        for(var n in this.state.colors)
+        { rta+=< div className = "imagenes-selector" > {
+                    this.state.images[n].map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
+                    
+                        />)}   < /div>
+        }
+
+         
+
+        return rta;
+    }
+
+
     render() {
             return ( 
         < div className = "home" >
             < div id = "barraBusqueda" >
             <h1> Flickr Rainbow</h1>
-            <h3> Search for something on Flickr and we will get you a rainbow </h2>
+            <h4> Search for something on Flickr and we will get you a rainbow </h4>
             <div className="col-md-12">
-             <input className="form-control" type="text" defaultValue="Amor" onKeyDown ={(event) => this.handleKeyPress(event)}/>
+             <input className="form-control" type="text" defaultValue="Flower" onKeyDown ={(event) => this.handleKeyPress(event)}/>
             </div>
-                < /div> 
+                
+                 < /div> 
 
-                < div className = "imagenes-selector" > {
+                < div className = "col-md-1 imagenes-selector" > {
                     this.state.red.map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
                     
                         />)}   < /div> 
 
-                  < div className = "imagenes-selector" > {
+               
+                          < div className = "col-md-1 imagenes-selector" > {
                     this.state.orange.map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
                     
                         />)}   < /div> 
-
-
-                       < div className = "imagenes-selector" > {
+                       
+                       < div className = "col-md-1 imagenes-selector" > {
                     this.state.yellow.map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
                     
                         />)}   < /div> 
 
 
-                           < div className = "imagenes-selector" > {
+                           < div className = "col-md-1 imagenes-selector" > {
                     this.state.green.map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
                     
                         />)}   < /div> 
 
 
-                           < div className = "imagenes-selector" > {
+                           < div className = "col-md-1 imagenes-selector" > {
                     this.state.blue.map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
                     
                         />)}   < /div> 
 
 
-                           < div className = "imagenes-selector" > {
+                           < div className = "col-md-1 imagenes-selector" > {
                     this.state.indigo.map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
                     
                         />)}   < /div> 
 
-                           < div className = "imagenes-selector" > {
+                           < div className = "col-md-1 imagenes-selector" > {
                     this.state.violet.map(imagesData => < ImagePreview key = { imagesData.id } {...imagesData }
                     
                         />)}   < /div> 
 
+
+
+            
                 < /div>
+
                     );
                 }
             }
 
-            export default App;
+export default App;

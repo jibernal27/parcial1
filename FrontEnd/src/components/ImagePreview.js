@@ -18,9 +18,9 @@ getUrlOrigina(photo)
 
   render() {
     return (     
-        <div className="col-sm-1 ">
+        <div className="imagen">
         < a href={this.getUrlOrigina(this.props)} target='_blank' >
-          <img className="imageResult lazy" src={`${this.getUrl(this.props)}`}/>
+          <img className="imageResult"  src={`${this.getUrl(this.props)}`}/>
         < /a>
         </div>
       

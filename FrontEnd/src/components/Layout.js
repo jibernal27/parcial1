@@ -11,10 +11,12 @@ export default class Layout extends React.Component {
 
         </header>
 
-        <div className="app-content">  </div>
-        <footer >
+        <div className="app-content ">  
+        </div>
+
+        <footer className="col-md-12" >
           <p>
-           Construido con React, Express y Node.js. Código fuente <a href="https://github.com/jibernal27/proyecto2Web">github</a>
+           Construido con React, Express y Node.js. Código fuente <a href="https://github.com/jibernal27/parcial1">github</a>
           </p>
         </footer>
       </div>

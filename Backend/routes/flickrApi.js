@@ -1,7 +1,9 @@
 var Flickr = require('flickr-sdk');
 
+
+
 var flickr = new Flickr({
-    "apiKey":            "4260790c7143613f8176a402a0871c01",
+    "apiKey": process.env.CONSUMER_KEY
 });
 
 
@@ -46,7 +48,7 @@ exports.getTags=function (req, res) {
 
 
 exports.getTermino=function (req, res) {
-
+	console.log("Pide"+ req.params.termino);
 	flickr
 .request()
 .media()
