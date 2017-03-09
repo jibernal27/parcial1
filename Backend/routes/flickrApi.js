@@ -1,0 +1,62 @@
+var Flickr = require('flickr-sdk');
+
+var flickr = new Flickr({
+    "apiKey":            "4260790c7143613f8176a402a0871c01",
+});
+
+
+function getUrl(photo)
+{
+	return 'https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg'.replace('{farm-id}', photo.farm).replace('{server-id}', photo.server).replace('{id}', photo.id).replace('{secret}', photo.secret);
+}
+
+exports.getMedia=function (req, res) {
+	flickr
+.request()
+.media(req.params.id)
+.get()
+.then(function (response) {
+var photosHTML = '';
+var photo = response.body.photo;
+photosHTML += getUrl(photo);
+	console.log(photosHTML)
+	response.body.photo['url']=photosHTML;
+	res.json(response);
+});
+  
+};
+
+
+exports.getTags=function (req, res) {
+
+	flickr
+.request()
+.media()
+.search()
+.get({
+	page: 1,
+    per_page: parseInt(req.params.num),
+    tags:req.params.tags
+})
+.then(function (response) {
+	
+  res.json(response);
+});
+};
+
+
+exports.getTermino=function (req, res) {
+
+	flickr
+.request()
+.media()
+.search(req.params.termino)
+.get({
+	sort:"relevance",
+    per_page: 12
+})
+.then(function (response) {
+
+  res.json(response);
+});
+};
