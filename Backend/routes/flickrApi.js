@@ -48,14 +48,14 @@ exports.getTags=function (req, res) {
 
 
 exports.getTermino=function (req, res) {
-	console.log("Pide"+ req.params.termino);
+	console.log("Pide"+ req.params.cant);
 	flickr
 .request()
 .media()
 .search(req.params.termino)
 .get({
 	sort:"relevance",
-    per_page: 12
+    per_page: parseInt(req.params.cant)
 })
 .then(function (response) {
 
