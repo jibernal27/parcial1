@@ -45,7 +45,7 @@ class App extends Component {
 
     obtenerImagesCriterio(cri) {
         
-       
+    // John: Esto está muy feo....
     axios.get(ROOT_URL + "/flickr/"+cri+" red"+"/"+this.state.cant)
                 .then(response => {
                     console.log(response.data);
