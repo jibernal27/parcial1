@@ -2,15 +2,15 @@
 Repo para el parcial 1
 
 # Para correr el backend
-En la carpeta Backend abra una ventana de comandos y ponga las siguientes variables de entorno: 
-
-export CONSUMER_KEY=4260790c7143613f8176a402a0871c01
-
-export DATABASEPASSWROD=1
-
-export DATBASEUSER=jairo
-
-Escriba npm install y npm start en la misma ventana de comandos. Esto correra el backend en el puerto 3000.
+En la carpeta Backend abra una ventana de comandos y ponga los sigueintes comandos: 
+```bash
+$ export CONSUMER_KEY=4260790c7143613f8176a402a0871c01
+$ export DATABASEPASSWROD=1
+$ export DATBASEUSER=jairo
+$ npm install
+$ npm start
+```
+Esto correra el backend en el puerto 3000.
 
 A este puede hacer peticiones del tipo
 get  http://localhost:3000/flickr/<Termino de busqueda>/<catidad> Retornar los <cantidad> <Termino de busqueda>  más populares.
@@ -27,9 +27,18 @@ get  https://backendparcial1.herokuapp.com/mongo/5 Retorna las 5 busquedas más 
 
 
 # Para correr el FRONTEND.
-* Es suficiente inciar un servidor http en la carpeta FrontEnd, por ejemplo con una ventana de comandos en esta carpeta y  el comando  python -m SimpleHTTPServer 8000. En localhost:8000 se encontrara la aplicación. 
+* Es suficiente inciar un servidor http en la carpeta FrontEnd, por ejemplo utilizando pyhon con una ventana de comandos en la carpeta FrontEnd:
+```bash
+$ python -m SimpleHTTPServer 8000
+```
+En localhost:8000 se encontrara la aplicación. 
 
-* Si desea construirla desde el código fuente en en la carpeta Front End abra una ventana de comandos en la carpeta FrontEnd y escriba npm install y npm start que desplegaran la aplicación en el puerto 8080. 
+* Si desea construirla desde el código fuente en en la carpeta Front End abra una ventana de comandos en la carpeta FrontEnd y escriba
+```bash
+$ npm install
+$ npm start
+```
+Desplegaran la aplicación en el puerto 8080. 
 
 # Extra
 El hoover sobre las imágenes hace que sea más bello.
