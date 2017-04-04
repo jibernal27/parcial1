@@ -1,9 +1,9 @@
 # parcial1
 Repo para el parcial 1
 # Para correrlo.
-* Es suficiente inciar un servidor http en la carpeta FrontEnd con python python -m SimpleHTTPServer 8000. Despues en localhost:8000 se encontrara la aplicación. 
+* Es suficiente inciar un servidor http en la carpeta FrontEnd, por ejemplo con el comando  python -m SimpleHTTPServer 8000. Despues en localhost:8000 se encontrara la aplicación. 
 
-* Si desea construirla desde el ódigo fuente en la carpeta Front End pornga los comandos npm install y npm start que desplegaran la aplicación en el puerto 8080. 
+* Si desea construirla desde el código fuente en en la carpeta Front End abra una ventana de comandos y escriba npm install y npm start que desplegaran la aplicación en el puerto 8080. 
 
 El Backend ya esta corriendo en heroku 
 https://backendparcial1.herokuapp.com/
